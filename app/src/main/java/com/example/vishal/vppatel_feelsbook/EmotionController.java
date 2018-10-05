@@ -17,6 +17,12 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * EmotionController.java
+ * This controller contains functions for updating the EmotionList model.
+ *
+ * Rationale: Following MVC model.
+ */
 public class EmotionController {
 
     // Gets the EmotionList model and adds an emotion to it.

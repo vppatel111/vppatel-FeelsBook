@@ -18,6 +18,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * ChangeEmotionActivity.java
+ * This activity (view) contains functions for getting user input for changes to emotions.
+ *
+ * Rationale: Following MVC model.
+ */
 public class ChangeEmotionActivity extends AppCompatActivity {
 
     @Override

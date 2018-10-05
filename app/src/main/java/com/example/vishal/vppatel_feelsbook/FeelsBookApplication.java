@@ -2,6 +2,13 @@ package com.example.vishal.vppatel_feelsbook;
 
 import android.app.Application;
 
+/**
+ * FeelsBookApplication.java
+ * The FeelsBookApplication handles creating singletons of the model and controller which can be
+ * accessed by all views.
+ *
+ * Rationale: Following MVC model.
+ */
 public class FeelsBookApplication extends Application {
 
     // The name of the file where our model: EmotionList will be saved.

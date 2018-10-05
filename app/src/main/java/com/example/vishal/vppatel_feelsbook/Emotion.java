@@ -2,6 +2,11 @@ package com.example.vishal.vppatel_feelsbook;
 
 import java.util.Date;
 
+/**
+ * Emotion.java
+ * Purpose: This model stores information about one emotion.
+ * Rationale: Need a data class to store information specific to an emotion..
+ */
 public class Emotion {
 
     private String mood;    // The type of the mood.

@@ -5,6 +5,11 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.Observable;
 
+/**
+ * EmotionList.java
+ * Purpose: This model stores information about moods.
+ * Rationale: Following MVC model.
+ */
 public class EmotionList extends Observable {
 
     // Stores our emotions.

@@ -12,6 +12,13 @@ import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * MainActivity.java
+ * This activity handles allowing the user to add emotions with an optional comment. It also
+ * displays a continually updated count of the emotions.
+ *
+ * Rationale: Following MVC model.
+ */
 public class MainActivity extends AppCompatActivity implements Observer {
 
     @Override

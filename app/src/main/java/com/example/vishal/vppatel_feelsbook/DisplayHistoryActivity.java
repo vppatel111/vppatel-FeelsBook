@@ -14,6 +14,12 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * DisplayHistoryActivity.java
+ * Purpose: This activity (view) contains functions for displaying a history of emotions in a ListView.
+ *
+ * Rationale: A separate activity to display history reduces clutter on MainActivity.
+ */
 public class DisplayHistoryActivity extends AppCompatActivity implements Observer {
 
     // The name of the ITEM_ID message.
