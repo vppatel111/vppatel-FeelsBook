@@ -12,7 +12,7 @@
         android:layout_height="137dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button16"
+        app:layout_constraintBottom_toTopOf="@+id/historyButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,16 +24,16 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/loveButton"
                 android:layout_width="168dp"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Love" />
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/joyButton"
                 android:layout_width="167dp"
                 android:layout_height="wrap_content"
-                android:text="Button"
+                android:text="Joy"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.623"
@@ -46,18 +46,18 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/surpriseButton"
                 android:layout_width="146dp"
                 android:layout_height="wrap_content"
-                android:text="Button"
+                android:text="Surprise"
                 tools:layout_editor_absoluteX="182dp"
                 tools:layout_editor_absoluteY="397dp" />
 
             <Button
-                android:id="@+id/button11"
+                android:id="@+id/fearButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Fear" />
         </TableRow>
 
         <TableRow
@@ -65,16 +65,16 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button12"
+                android:id="@+id/sadnessButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Sadness" />
 
             <Button
-                android:id="@+id/button13"
+                android:id="@+id/angerButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Anger" />
         </TableRow>
 
         <TableRow
@@ -85,8 +85,7 @@
     <TableLayout
         android:id="@+id/tableLayout3"
         android:layout_width="368dp"
-        android:layout_height="180dp"
-        android:layout_marginLeft="16dp"
+        android:layout_height="188dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,21 +122,21 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/loveCountText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/joyCountText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/surpriseCountText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -176,21 +175,21 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/fearCountText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/sadnessCountText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/angerCountText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -199,33 +198,29 @@
     </TableLayout>
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/commentText"
         android:layout_width="345dp"
         android:layout_height="80dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:inputType="textMultiLine|textShortMessage"
+        android:text="Enter a comment (100 characters max):"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/historyButton"
         android:layout_width="336dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:text="Button"
+        android:text="View Emotion History"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
