@@ -1,17 +1,15 @@
 package com.example.vishal.vppatel_feelsbook;
 
 import android.app.Application;
-import android.content.Context;
-import android.util.Log;
 
-import java.io.FileOutputStream;
-
-// Limit comment input to 100 characters.
 public class FeelsBookApplication extends Application {
 
+    // The name of the file where our model: EmotionList will be saved.
     public static final String SAVE_FILE = "file.sav";
 
-    // Singleton
+    // Credit to instructor: FillerCreepExample.
+
+    // Singleton for the model.
     private static EmotionList feels = null;
     static EmotionList getFeels() {
         if (feels == null) {
@@ -22,7 +20,7 @@ public class FeelsBookApplication extends Application {
     }
 
 
-    // 'nother singleton
+    // 'nother singleton for the controller.
     private static EmotionController feelsController = null;
     static EmotionController getFeelsController() {
         if (feelsController == null) {

@@ -4,11 +4,9 @@ import java.util.Date;
 
 public class Emotion {
 
-    // TODO: A more intuitive way to do moods? Like store them as classes or something else. I hate
-    // doing string checks.
-    private String mood;
-    private Date date;
-    private String comment;
+    private String mood;    // The type of the mood.
+    private Date date;      // The date of the mood.
+    private String comment; // The comment of the mood.
 
     // When a new emotion is added, it might have an optional comment.
     public Emotion (String mood, String comment){
@@ -17,22 +15,27 @@ public class Emotion {
         this.comment = comment;
     }
 
+    // Returns the emotion's mood type.
     public String getMood() {
         return this.mood;
     }
 
+    // Returns the emotion's date type.
     public Date getDate() {
         return this.date;
     }
 
+    // Sets the emotion's date.
     public void setDate(Date date) {
         this.date = date;
     }
 
+    // Returns the emotion's comment.
     public String getComment() {
         return this.comment;
     }
 
+    // Sets the emotion's comment.
     public void setComment(String comment) {
         this.comment = comment;
     }

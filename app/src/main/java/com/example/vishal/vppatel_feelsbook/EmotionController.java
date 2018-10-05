@@ -19,6 +19,9 @@ import java.util.Date;
 
 public class EmotionController {
 
+    // Gets the EmotionList model and adds an emotion to it.
+    // Inputs: emotion - the emotion to add.
+    // Outputs: Calls addEmotion() on EmotionList.
     public void addEmotion(Emotion emotion) {
 
         EmotionList emotionList = FeelsBookApplication.getFeels();
@@ -26,17 +29,29 @@ public class EmotionController {
 
     }
 
+    // Gets the EmotionList model and changes a specific emotion.
+    // Inputs: id - The index of the specific emotion
+    //         date - The new date.
+    //         comment - The new comment.
+    // Outputs: Calls setEmotion() on EmotionList.
     public void updateEmotion(int id, Date date, String comment) {
 
         EmotionList emotionList = FeelsBookApplication.getFeels();
         emotionList.setEmotion(id, date, comment);
     }
 
+    // Gets the EmotionList model and deletes a specific emotion from it.
+    // Inputs: id - The index of the specific emotion
+    // Outputs: Calls removeEmotion() on EmotionList.
     public void deleteEmotion(int id) {
         EmotionList emotionList = FeelsBookApplication.getFeels();
         emotionList.removeEmotion(id);
     }
 
+    // Saves the EmotionList model to a file using Json/Gson.
+    // Inputs: context - The context of the activity calling saveChanges().
+    //         filename - the file to which to save our model.
+    // Outputs: The EmotionList model is saved to a file in Gson format.
     public void saveChanges(Context context, String filename) {
 
         EmotionList emotionList = FeelsBookApplication.getFeels();
@@ -60,6 +75,10 @@ public class EmotionController {
 
     }
 
+    // Loads a EmotionList model from a file.
+    // Inputs: context - The context of the activity calling saveChanges().
+    //         filename - the file to which to save our model.
+    // Outputs: Sets the current model to the one loaded
     public void loadFromFile(Context context, String filename) {
 
         EmotionList emotionList = FeelsBookApplication.getFeels();

@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements Observer {
         EmotionList feels = FeelsBookApplication.getFeels();
         feels.addObserver(this);
 
+        //  Add an onclick listener that opens the EmotionHistoryActivity
         Button historyButton = (Button) findViewById(R.id.historyButton);
         historyButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements Observer {
             }
         });
 
+        // Add onclick listeners that adds an emotion per type of emotion, through addEmotion()
         Button fearButton = (Button) findViewById(R.id.fearButton);
         fearButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,27 +83,32 @@ public class MainActivity extends AppCompatActivity implements Observer {
 
     }
 
+    @Override
     public void onStart() {
         super.onStart();
 
+        // Ensure the EmotionList is up to date.
         EmotionController emotionController = FeelsBookApplication.getFeelsController();
         emotionController.loadFromFile(this.getApplicationContext(), FeelsBookApplication.SAVE_FILE);
     }
 
     // Packages up information received from the user and sends it to the EmotionController.
-    // Print date in ISO format in the history
+    // Inputs: mood - the type of the mood
+    //         comment - an optional comment entered in commentText.
+    // Outputs: Uses EmotionController to add an emotion to the emotionList.
     public void addEmotion(String mood) {
 
         String comment = "";
         TextView commentText = (TextView) findViewById(R.id.commentText);
 
-        // Check that comment text box is NOT empty.
+        // Check that comment text box is NOT empty before grabbing input.
         if (!commentText.getText().toString().equals("")) {
             comment = commentText.getText().toString();
         }
 
         Emotion newEmotion = new Emotion(mood, comment);
 
+        // Use EmotionController to add an emotion and save changes to a file.
         EmotionController emotionController = FeelsBookApplication.getFeelsController();
         emotionController.addEmotion(newEmotion);
         emotionController.saveChanges(this.getApplicationContext(), FeelsBookApplication.SAVE_FILE);
@@ -117,21 +124,28 @@ public class MainActivity extends AppCompatActivity implements Observer {
         startActivity(intent);
     }
 
+    // Called when EmotionList is updated.
     @Override
     public void update(Observable o, Object arg) {
-        updateEmotionCount((EmotionList) o); // TODO: Confirm type casting.
+        updateEmotionCount((EmotionList) o);
     }
 
 
+    // Updates the counters for each emotion.
+    // Inputs: emotionList - The data model for all emotions.
+    // Outputs: Updates TextView counters for all emotions in MainActivity
     public void updateEmotionCount(EmotionList emotionList) {
 
+        // Credit to: Instructor forums.
         HashMap<String, Integer> emotionCount = new HashMap<String, Integer>();
 
+        // The emotion class knows it's mood, therefore, we can use a hashmap with emotions
+        // as keys to count them.
         for (Emotion e: emotionList.getEmotionHistory()) {
             emotionCount.put(e.getMood(), 1 + emotionCount.getOrDefault(e.getMood(), 0));
         }
 
-        // Update the count of all emotions.
+        // Update the TextView count of all emotions.
         TextView fear = (TextView) findViewById(R.id.fearCountText);
         fear.setText("0");
         if (emotionCount.containsKey("Fear")) {
@@ -173,6 +187,8 @@ public class MainActivity extends AppCompatActivity implements Observer {
     @Override
     public void onDestroy() {
         super.onDestroy();
+
+        // Unsubscribe the MainActivity from the EmotionList model.
         EmotionList feels = FeelsBookApplication.getFeels();
         feels.deleteObserver(this);
     }

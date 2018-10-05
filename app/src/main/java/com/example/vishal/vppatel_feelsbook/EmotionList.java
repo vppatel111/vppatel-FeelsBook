@@ -1,22 +1,5 @@
 package com.example.vishal.vppatel_feelsbook;
 
-import android.app.Application;
-import android.content.Context;
-import android.util.Log;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
@@ -24,25 +7,36 @@ import java.util.Observable;
 
 public class EmotionList extends Observable {
 
-    // Sorted in chronological order.
+    // Stores our emotions.
+    // Note: EmotionList ensures this stays sorted in chronological order.
     private ArrayList<Emotion> emotionHistory;
 
+    // When created, make a new emotionHistory.
     public EmotionList() {
         this.emotionHistory = new ArrayList<Emotion>();
     }
 
-    // New emotions are guaranteed to be the most recent, therefore sorting after adding them
-    // is not necessary.
+    // Adds an emotion to emotionHistory.
+    // Inputs: mood - The type of the emotion
+    //         comment - A 100 character string comment.
+    // Outputs: Adds a new emotion with parameters: mood, comment to emotionHistory.
     public void addEmotion(String mood, String comment) {
         this.emotionHistory.add(new Emotion(mood, comment));
+
+        // Need to sort items to maintain chronological order in the case that the user manuallu
+        // set the date for an emotion to something in the future.
+        sortEmotions();
 
         setChanged();
         notifyObservers();
     }
 
-    // Sorts emotion history by date.
+    // Sorts emotion history in chronological order.
+    // Inputs - Uses this.emotionHistory arraylist.
+    // Outputs - this.emotionHistory is now sorted in chronological order.
     public void sortEmotions() {
 
+        // Sort ArrayList with custom comparator that uses dates.
         this.emotionHistory.sort(new Comparator<Emotion>() {
             @Override
             public int compare(Emotion o1, Emotion o2) {
@@ -52,13 +46,21 @@ public class EmotionList extends Observable {
 
     }
 
+    // Changes a specific emotion in this.emotionHistory()
+    // Inputs: id - the index of the specific emotion
+    //         date - the new date for the emotion
+    //         comment - the new comment for the emotion
+    // Outputs: A specific emotion with index id is changed with the new date and comment.
     public void setEmotion(int id, Date date, String comment) {
 
+        // Get the current info for the emotion
         Emotion changeEmotion = this.emotionHistory.get(id);
 
+        // Change the date and comment.
         changeEmotion.setDate(date);
         changeEmotion.setComment(comment);
 
+        // Replace the existing emotion with our changed one.
         this.emotionHistory.set(id, changeEmotion);
 
         // Need to sort items to maintain chronological order.
@@ -68,10 +70,12 @@ public class EmotionList extends Observable {
         notifyObservers();
     }
 
+    // Returns a specific emotion in emotionHistory with index id.
     public Emotion getEmotion(int id) {
         return this.emotionHistory.get(id);
     }
 
+    // Removes a specific emotion in emotionHistory with index id.
     public void removeEmotion(int id) {
         this.emotionHistory.remove(id);
 
@@ -79,10 +83,14 @@ public class EmotionList extends Observable {
         notifyObservers();
     }
 
+    // Returns the emotionHistory arraylist.
     public ArrayList<Emotion> getEmotionHistory() {
         return this.emotionHistory;
     }
 
+    // Replaces the entire emotionHistory with a new one.
+    // Inputs: emotionHistory - the new emotionHistory.
+    // Outputs: this.emotionHistory is replaced with emotionHistory.
     public void setEmotionHistory(ArrayList<Emotion> emotionHistory) {
         this.emotionHistory = emotionHistory;
 

@@ -30,8 +30,7 @@ public class ChangeEmotionActivity extends AppCompatActivity {
 
         if (emotionId >= 0) {
 
-            // Initialize the date and comment fields.
-            //TextView timeText = (TextView) findViewById(R.id.newTimeText);
+            // Initialize the date and comment fields with the current emotion's information.
             TextView dateText = (TextView) findViewById(R.id.newDateText);
             TextView commentText = (TextView) findViewById(R.id.newCommentText);
             ImageView emotionPic = (ImageView) findViewById(R.id.emotionImage);
@@ -44,6 +43,7 @@ public class ChangeEmotionActivity extends AppCompatActivity {
             dateText.setText(dateString);
             commentText.setText(feels.getEmotion((int) emotionId).getComment());
 
+            // Set the ImageView to the selected mood type.
             if (mood.equals("Love")) {
                 emotionPic.setImageResource(R.drawable.love);
             } else if (mood.equals("Joy")) {
@@ -60,6 +60,7 @@ public class ChangeEmotionActivity extends AppCompatActivity {
 
         }
 
+        // Adds an onclick listener to saveChangesToEmotion()
         Button saveButton = (Button) findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +69,7 @@ public class ChangeEmotionActivity extends AppCompatActivity {
             }
         });
 
+        // Adds an onclick listener to close the activity when quitting.
         Button cancelButton = (Button) findViewById(R.id.cancelButton);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +78,7 @@ public class ChangeEmotionActivity extends AppCompatActivity {
             }
         });
 
+        // Adds an onclick listener to delete the emotion.
         Button deleteButton = (Button) findViewById(R.id.deleteButton);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +93,7 @@ public class ChangeEmotionActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
 
+        // Load emotion history from the file.
         EmotionController emotionController = FeelsBookApplication.getFeelsController();
         emotionController.loadFromFile(this.getApplicationContext(), FeelsBookApplication.SAVE_FILE);
     }
@@ -98,6 +102,9 @@ public class ChangeEmotionActivity extends AppCompatActivity {
         this.finish();
     }
 
+    // Parse the date input provided by the user.
+    // Input: input - The date-string to parse.
+    // Output: Returns a Date if parsing was successful or null otherwise.
     public Date parseDateInput(String input) {
         try {
             Date newDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(input);
@@ -107,6 +114,8 @@ public class ChangeEmotionActivity extends AppCompatActivity {
         }
     }
 
+    // Uses emotionController to delete an emotion and save changes.
+    // Input: emotionId - The index of the emotion to delete.
     public void deleteEmotion(int emotionId) {
         EmotionController emotionController = FeelsBookApplication.getFeelsController();
         emotionController.deleteEmotion(emotionId);
@@ -114,6 +123,9 @@ public class ChangeEmotionActivity extends AppCompatActivity {
         closeActivity();
     }
 
+
+    // Uses emotionController to update an emotion and save changes.
+    // Input: emotionID - The index of the emotion to update.
     public void saveChangesToEmotion(int emotionId) {
 
         // Get changes and use EmotionController to save them
