@@ -5,13 +5,13 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/oldTweetsTitle"
+        android:id="@+id/emotionListTitle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="My old tweets" />
+        android:text="My emotions:" />
 
     <ListView
-        android:id="@+id/oldTweetsList"
+        android:id="@+id/emotionsList"
         android:layout_width="fill_parent"
         android:layout_height="263dp"
         android:layout_weight="1"

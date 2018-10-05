@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Emotion {
 
-    // TODO: A more intuitive way to do moods? Like store them as classes or something els. I hate
+    // TODO: A more intuitive way to do moods? Like store them as classes or something else. I hate
     // doing string checks.
     private String mood;
     private Date date;

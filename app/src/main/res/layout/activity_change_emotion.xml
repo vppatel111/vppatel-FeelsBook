@@ -44,16 +44,14 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/dateText"
             android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:text="TextView" />
+            android:layout_height="46dp" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/commentText"
             android:layout_width="match_parent"
-            android:layout_height="97dp"
-            android:text="TextView" />
+            android:layout_height="97dp" />
 
         <View
             android:id="@+id/divider"
