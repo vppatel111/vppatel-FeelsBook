@@ -28,6 +28,13 @@ public class ChangeEmotionActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final long emotionId = intent.getLongExtra(DisplayHistoryActivity.ITEM_ID_MESSAGE, -1);
 
+        initUI((int) emotionId);
+
+
+    }
+
+    // Initializes the UI elements.
+    public void initUI(final int emotionId) {
         if (emotionId >= 0) {
 
             // Initialize the date and comment fields with the current emotion's information.
@@ -37,11 +44,11 @@ public class ChangeEmotionActivity extends AppCompatActivity {
             EmotionList feels = FeelsBookApplication.getFeels();
 
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String dateString = dateFormat.format(feels.getEmotion((int) emotionId).getDate());
-            String mood = feels.getEmotion((int) emotionId).getMood();
+            String dateString = dateFormat.format(feels.getEmotion(emotionId).getDate());
+            String mood = feels.getEmotion(emotionId).getMood();
 
             dateText.setText(dateString);
-            commentText.setText(feels.getEmotion((int) emotionId).getComment());
+            commentText.setText(feels.getEmotion(emotionId).getComment());
 
             // Set the ImageView to the selected mood type.
             if (mood.equals("Love")) {
@@ -65,7 +72,7 @@ public class ChangeEmotionActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveChangesToEmotion((int) emotionId);
+                saveChangesToEmotion(emotionId);
             }
         });
 
@@ -83,10 +90,9 @@ public class ChangeEmotionActivity extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteEmotion((int) emotionId);
+                deleteEmotion((emotionId));
             }
         });
-
     }
 
     @Override

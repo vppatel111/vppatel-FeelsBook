@@ -48,6 +48,12 @@ public class EmotionController {
         emotionList.removeEmotion(id);
     }
 
+    // Credit to joshua2ua: lonelyTwitter.
+    // Date Accessed Last: Oct 5, 2018
+    // Link: https://github.com/joshua2ua/lonelyTwitter
+    // Used the saving and loading from file features.
+    // License: No License.md file specified.
+
     // Saves the EmotionList model to a file using Json/Gson.
     // Inputs: context - The context of the activity calling saveChanges().
     //         filename - the file to which to save our model.

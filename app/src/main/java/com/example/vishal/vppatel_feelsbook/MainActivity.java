@@ -23,6 +23,13 @@ public class MainActivity extends AppCompatActivity implements Observer {
         EmotionList feels = FeelsBookApplication.getFeels();
         feels.addObserver(this);
 
+        initUI();
+
+    }
+
+    // Initializes the UI elements.
+    public void initUI() {
+
         //  Add an onclick listener that opens the EmotionHistoryActivity
         Button historyButton = (Button) findViewById(R.id.historyButton);
         historyButton.setOnClickListener(new View.OnClickListener() {

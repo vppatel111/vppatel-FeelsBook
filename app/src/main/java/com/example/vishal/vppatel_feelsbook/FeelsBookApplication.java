@@ -7,7 +7,11 @@ public class FeelsBookApplication extends Application {
     // The name of the file where our model: EmotionList will be saved.
     public static final String SAVE_FILE = "file.sav";
 
-    // Credit to instructor: FillerCreepExample.
+    // Credit to orezpraw: FillerCreepExample.
+    // Date Accessed Last: Oct 5, 2018
+    // Link: https://github.com/orezpraw/FillerCreepForAndroid
+    // Used FillerCreepApplication.java as a reference
+    // License: No License.md file specified.
 
     // Singleton for the model.
     private static EmotionList feels = null;
