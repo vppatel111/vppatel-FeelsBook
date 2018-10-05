@@ -25,8 +25,16 @@ public class Emotion {
         return this.date;
     }
 
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public String getComment() {
         return this.comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
 }

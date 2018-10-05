@@ -11,47 +11,32 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="132dp"
-            android:orientation="horizontal">
+            android:layout_height="251dp"
+            android:layout_weight="1"
+            app:srcCompat="@mipmap/ic_launcher" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="311dp"
-                android:layout_height="129dp"
-                android:layout_weight="1"
-                app:srcCompat="@mipmap/ic_launcher" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Button" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/dateText"
+        <Button
+            android:id="@+id/deleteButton"
             android:layout_width="match_parent"
-            android:layout_height="46dp" />
-
-        <TextView
-            android:id="@+id/commentText"
-            android:layout_width="match_parent"
-            android:layout_height="97dp" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="Delete Emotion"
+            android:textAlignment="center" />
 
         <View
             android:id="@+id/divider"
@@ -59,39 +44,55 @@
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
 
-        <EditText
-            android:id="@+id/editText"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date" />
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/newDateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="datetime" />
+
+            <EditText
+                android:id="@+id/newTimeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="time" />
+        </LinearLayout>
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/newCommentText"
             android:layout_width="match_parent"
             android:layout_height="143dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="Enter a comment (100 words max)."
+            android:inputType="textShortMessage" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Save" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/cancelButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Cancel" />
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

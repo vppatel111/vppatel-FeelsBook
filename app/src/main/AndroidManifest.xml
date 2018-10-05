@@ -20,9 +20,13 @@
         </activity>
 
         <activity android:name=".DisplayHistoryActivity"
-                  android:parentActivityName=".MainActivity" />
+                  android:parentActivityName=".MainActivity" >
+        </activity>
 
-        <activity android:name=".ChangeEmotionActivity"></activity>
+        <activity android:name=".ChangeEmotionActivity"
+                  android:parentActivityName=".DisplayHistoryActivity">
+        </activity>
+
     </application>
 
 </manifest>

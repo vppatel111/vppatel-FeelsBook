@@ -1,9 +1,19 @@
 package com.example.vishal.vppatel_feelsbook;
 
 import android.app.Application;
+import android.content.Context;
 import android.util.Log;
 
+import java.io.FileOutputStream;
+
+
+// TODO: Couple problems: Update main activity when  parsing backwards.
+// Limit comment input to 100 characters.
+// Clear input after finishing one emotion
+// Display the time properly to users in the change section.
 public class FeelsBookApplication extends Application {
+
+    public static final String SAVE_FILE = "file.sav";
 
     // Singleton
     private static EmotionList feels = null;
@@ -11,6 +21,7 @@ public class FeelsBookApplication extends Application {
         if (feels == null) {
             feels = new EmotionList();
         }
+
         return feels;
     }
 
@@ -26,7 +37,6 @@ public class FeelsBookApplication extends Application {
 
     @Override
     public void onCreate() {
-        Log.d("TEST1", "onCreate: I hath been created");
         super.onCreate();
     }
 }

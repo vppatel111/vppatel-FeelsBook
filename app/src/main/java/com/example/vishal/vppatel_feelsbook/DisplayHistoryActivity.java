@@ -32,6 +32,7 @@ public class DisplayHistoryActivity extends AppCompatActivity implements Observe
                 openChangeEmotion(id);
             }
         });
+
     }
 
     // Note: id should correspond with model arrangement of emotions.
@@ -44,6 +45,10 @@ public class DisplayHistoryActivity extends AppCompatActivity implements Observe
     @Override
     protected void onStart() {
         super.onStart();
+
+        EmotionController emotionController = FeelsBookApplication.getFeelsController();
+        emotionController.loadFromFile(this.getApplicationContext(), FeelsBookApplication.SAVE_FILE);
+
         EmotionList feels = FeelsBookApplication.getFeels();
         updateHistoryList(feels);
     }
