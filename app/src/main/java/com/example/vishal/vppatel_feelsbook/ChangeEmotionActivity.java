@@ -1,11 +1,13 @@
 package com.example.vishal.vppatel_feelsbook;
 
 import android.content.Intent;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,13 +34,30 @@ public class ChangeEmotionActivity extends AppCompatActivity {
             //TextView timeText = (TextView) findViewById(R.id.newTimeText);
             TextView dateText = (TextView) findViewById(R.id.newDateText);
             TextView commentText = (TextView) findViewById(R.id.newCommentText);
+            ImageView emotionPic = (ImageView) findViewById(R.id.emotionImage);
             EmotionList feels = FeelsBookApplication.getFeels();
 
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String dateString = dateFormat.format(feels.getEmotion((int) emotionId).getDate());
+            String mood = feels.getEmotion((int) emotionId).getMood();
 
             dateText.setText(dateString);
             commentText.setText(feels.getEmotion((int) emotionId).getComment());
+
+            if (mood.equals("Love")) {
+                emotionPic.setImageResource(R.drawable.love);
+            } else if (mood.equals("Joy")) {
+                emotionPic.setImageResource(R.drawable.joy);
+            } else if (mood.equals("Surprise")) {
+                emotionPic.setImageResource(R.drawable.surprise);
+            } else if (mood.equals("Anger")) {
+                emotionPic.setImageResource(R.drawable.anger);
+            } else if (mood.equals("Fear")) {
+                emotionPic.setImageResource(R.drawable.fear);
+            } else if (mood.equals("Sadness")) {
+                emotionPic.setImageResource(R.drawable.sadness);
+            }
+
         }
 
         Button saveButton = (Button) findViewById(R.id.saveButton);
@@ -81,7 +100,7 @@ public class ChangeEmotionActivity extends AppCompatActivity {
 
     public Date parseDateInput(String input) {
         try {
-            Date newDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(input);
+            Date newDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(input);
             return newDate;
         } catch (ParseException e) {
             return null;

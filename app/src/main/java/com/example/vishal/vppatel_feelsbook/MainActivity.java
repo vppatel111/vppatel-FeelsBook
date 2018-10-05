@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity implements Observer {
     }
 
     // Packages up information received from the user and sends it to the EmotionController.
-    // TODO: Constrain input size to 100 characters.
     // Print date in ISO format in the history
     public void addEmotion(String mood) {
 
@@ -106,6 +105,9 @@ public class MainActivity extends AppCompatActivity implements Observer {
         EmotionController emotionController = FeelsBookApplication.getFeelsController();
         emotionController.addEmotion(newEmotion);
         emotionController.saveChanges(this.getApplicationContext(), FeelsBookApplication.SAVE_FILE);
+
+        // Clear the comment box.
+        commentText.setText("");
 
     }
 

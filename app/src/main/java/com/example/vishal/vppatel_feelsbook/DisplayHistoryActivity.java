@@ -8,7 +8,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -60,9 +63,13 @@ public class DisplayHistoryActivity extends AppCompatActivity implements Observe
 
     public String[] convertEmotionToArray(EmotionList emotionList) {
         ArrayList<String> emotions = new ArrayList<String>();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 
         for (Emotion e : emotionList.getEmotionHistory()) {
-            emotions.add(e.getDate() + " - " + e.getMood() + ": " + e.getComment());
+
+            String dateString = dateFormat.format(e.getDate());
+
+            emotions.add(dateString + " - " + e.getMood() + ": " + e.getComment());
         }
 
         return emotions.toArray(new String[emotions.size()]);

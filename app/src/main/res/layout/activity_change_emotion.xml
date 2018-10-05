@@ -23,10 +23,11 @@
         app:layout_constraintVertical_bias="1.0">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/emotionImage"
             android:layout_width="match_parent"
             android:layout_height="251dp"
             android:layout_weight="1"
+            android:scaleType="fitCenter"
             app:srcCompat="@mipmap/ic_launcher" />
 
         <Button
@@ -58,13 +59,6 @@
                 android:ems="10"
                 android:inputType="datetime" />
 
-            <EditText
-                android:id="@+id/newTimeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="time" />
         </LinearLayout>
 
         <EditText
@@ -73,7 +67,8 @@
             android:layout_height="143dp"
             android:ems="10"
             android:hint="Enter a comment (100 words max)."
-            android:inputType="textShortMessage" />
+            android:inputType="textShortMessage"
+            android:maxLength="100" />
 
         <LinearLayout
             android:layout_width="match_parent"

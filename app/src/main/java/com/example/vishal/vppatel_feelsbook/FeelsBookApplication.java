@@ -6,11 +6,7 @@ import android.util.Log;
 
 import java.io.FileOutputStream;
 
-
-// TODO: Couple problems: Update main activity when  parsing backwards.
 // Limit comment input to 100 characters.
-// Clear input after finishing one emotion
-// Display the time properly to users in the change section.
 public class FeelsBookApplication extends Application {
 
     public static final String SAVE_FILE = "file.sav";
